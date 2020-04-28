@@ -90,3 +90,55 @@
 (comment
   (map #(recursive-transform ex-07-transform % 4) [[28 36] [26 38]])
   )
+
+;; Ex. 11:
+;; In an aquarium two species of animacule are prey and predator.
+;; In each day, each predator destroys one prey, and also divides to become two predators.
+;; If today the aquarium has m prey and n predators, express their changes as a transform
+(defn ex-11-transform
+  [[m n]]
+  [(- m n)
+   (* 2 n)])
+
+(comment
+  (recursive-transform ex-11-transform [150 10] 4)
+  ) 
+
+(defn ex-14-transform
+  [[x y]]
+  [(* (- x y) 1/2)
+   (* (+ x y) 1/2)])
+
+(comment
+  (recursive-transform ex-14-transform [10 10] 8))
+  
+
+;; Ex. 16:
+;; In a certain economic system a new law enacts that at each yearly
+;; readjustment the wages shall be raised by as many shillings as the price index
+;; exceeds 100 in points. The economic effect of wages on the price index is such
+;; that at the end of any year the price index has become equal to the wage rate
+;; at the beginning of the year. Express the changes of wage-level and price-index
+;; over the year as a transformation.
+(defn ex-16-transform
+  [[wages price-index]]
+  [(+ wages (- price-index 100))
+   wages])
+
+(comment
+  (recursive-transform ex-16-transform [110 110] 10))
+  
+
+;; Ex. 19
+;; The system described above so that the transformation becomes
+;; wages' = 1/2(wages + price-index), price-index' = 1/2(wages - price-index) + 100
+(defn ex-16-transform
+  [[wages price-index]]
+  [(* (+ wages price-index) 1/2)
+   (+ (* (- wages price-index) 1/2) 100)])
+
+(comment
+  (recursive-transform ex-16-transform [110 110] 10)
+  (recursive-transform ex-16-transform [80 120] 10)
+  )
+
