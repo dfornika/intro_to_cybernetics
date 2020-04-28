@@ -88,5 +88,5 @@
 ;; Ex. 10:
 ;; If, in Ex. 8, other sums of money had been started with, who in general would be the winner?
 (comment
-  (map ex-07-transform [[28 36]]) 
+  (map #(recursive-transform ex-07-transform % 4) [[28 36] [26 38]])
   )
