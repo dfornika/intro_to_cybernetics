@@ -27,5 +27,24 @@
 ;; states, and it can be shown that the state (a, i) undergoes the transitions:
 ;; (a, i) -> (b, k) -> (a, i)
 
+;; (a, j) -> (d, i) ->
+
+(defn transducer-R [input alpha]
+  (let [transformations [{:a :c, :b :d, :c :d, :d :b}
+                         {:a :b, :b :a, :c :d, :d :c}
+                         {:a :d, :b :c, :c :d, :d :b}]]
+    ((get transformations (dec alpha)) input)))
+
+(defn transducer-P [input]
+  (let [transformations {:i :k, :j :i, :k :i}]
+    (transformations input)))
+
+(defn transducer-Z [input]
+  (let [transformations {:i 2, :j 3, :k 2}]
+    (transformations input)))
+
+(defn transducer-Q [input]
+  )
+
 (comment
   )
