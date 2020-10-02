@@ -132,7 +132,7 @@
 ;; Ex. 19
 ;; The system described above so that the transformation becomes
 ;; wages' = 1/2(wages + price-index), price-index' = 1/2(wages - price-index) + 100
-(defn ex-16-transform
+(defn ex-19-transform
   [[wages price-index]]
   [(* (+ wages price-index) 1/2)
    (+ (* (- wages price-index) 1/2) 100)])
