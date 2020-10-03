@@ -44,7 +44,10 @@
     (transformations input)))
 
 (defn transducer-Q [input]
-  )
+  (let [second-output (transducer-P (second input))
+        alpha (transducer-Z second-output)
+        first-output (transducer-R (first input) alpha)]
+  [first-output second-output]))
 
 (comment
   )
